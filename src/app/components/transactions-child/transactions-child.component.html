@@ -1,0 +1,16 @@
+<table *ngIf="child" class="table table-sm table-borderless">
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">color</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ child.id }}</td>
+    <td>
+      <span [ngStyle]="{'background-color': child.color }">{{ child.color }}</span>
+    </td>
+  </tr>
+  </tbody>
+</table>

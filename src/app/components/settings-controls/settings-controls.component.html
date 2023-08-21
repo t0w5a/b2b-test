@@ -1,0 +1,16 @@
+<div class="m-3 d-flex ">
+  <div class="me-3">
+    <label for="timer">Timer, ms</label>
+    <input [(ngModel)]="timerInput" (blur)="updateTimer()" id="timer" type="number" class="form-control" >
+  </div>
+
+  <div class="me-3">
+    <label for="arraySize">Array size</label>
+    <input [(ngModel)]="arraySizeInput" (blur)="updateArraySize()" id="arraySize" type="number" class="form-control" >
+  </div>
+
+  <div class="array-ids-container">
+    <label for="additionalIds">Additional array ids</label>
+    <input [(ngModel)]="additionalIdsInput" (blur)="updateAdditionalIds()" id="additionalIds" type="text" class="form-control" >
+  </div>
+</div>

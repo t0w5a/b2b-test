@@ -1,0 +1,33 @@
+<table class="table" *ngIf="additionalIds$ | async as additionalIds">
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">int</th>
+    <th scope="col">float</th>
+    <th scope="col">color</th>
+    <th scope="col">child</th>
+  </tr>
+  </thead>
+  <ng-container *ngIf="transactions$ | async as transactions">
+    <tbody *ngIf="transactions.length">
+    <tr *ngFor="let transaction of transactions; let i = index">
+      <td>
+        <ng-container *ngIf="additionalIds[i]">{{ additionalIds[i] }}</ng-container>
+        <ng-container *ngIf="!additionalIds[i]">{{ transaction.id }}</ng-container>
+      </td>
+      <td>{{ transaction.int }}</td>
+      <td>{{ transaction.float }}</td>
+      <td>
+        <span [ngStyle]="{'background-color': transaction.color }">{{ transaction.color }}</span>
+      </td>
+      <td>
+        <app-transactions-child [child]="transaction.child"></app-transactions-child>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="!transactions.length">
+    <td colspan="5" class="text-center">NO DATA</td>
+    </tbody>
+  </ng-container>
+</table>
